@@ -1,12 +1,7 @@
-FROM node:20-alpine
+FROM ghcr.io/xtls/xray-core:latest
 
-WORKDIR /app
+COPY config.json /usr/local/etc/xray/config.json
 
-COPY package*.json ./
-RUN npm install --omit=dev
+ENTRYPOINT ["/usr/local/bin/xray"]
 
-COPY . .
-
-EXPOSE 3000
-
-CMD ["npm", "start"]
+CMD ["run", "-config", "/usr/local/etc/xray/config.json"]
