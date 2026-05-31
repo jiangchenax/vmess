@@ -1,32 +1,41 @@
 {
   "log": {
-    "loglevel": "warning"
+    "loglevel": "error"
   },
   "inbounds": [
     {
-      "port": 3000,
+      "tag": "vless-grpc",
       "listen": "0.0.0.0",
-      "protocol": "vmess",
+      "port": 3000,
+      "protocol": "vless",
       "settings": {
         "clients": [
           {
             "id": "8a3f5c21-7d46-4e2f-9b10-61c2e7d8a934",
-            "alterId": 0
+            "email": "jseea@fur.email"
           }
-        ]
+        ],
+        "decryption": "none"
       },
       "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "path": "/ray"
+        "network": "grpc",
+        "security": "none",
+        "grpcSettings": {
+          "serviceName": "vless",
+          "multiMode": false
         }
       }
     }
   ],
   "outbounds": [
     {
+      "tag": "direct",
       "protocol": "freedom",
-      "tag": "direct"
+      "settings": {
+        "domainStrategy": "AsIs"
+      }
     }
+  ]
+}
   ]
 }
