@@ -4,15 +4,15 @@
   },
   "inbounds": [
     {
-      "tag": "vless-grpc",
+      "tag": "vless-grpc-3000",
       "listen": "0.0.0.0",
       "port": 3000,
       "protocol": "vless",
       "settings": {
         "clients": [
           {
-            "id": "8a3f5c21-7d46-4e2f-9b10-61c2e7d8a934",
-            "email": "jseea@fur.email"
+            "id": "f6b7c2a9-4d18-4e93-9f6a-2c8d71b5e042",
+            "email": "grpc-user"
           }
         ],
         "decryption": "none"
@@ -23,6 +23,28 @@
         "grpcSettings": {
           "serviceName": "vless",
           "multiMode": false
+        }
+      }
+    },
+    {
+      "tag": "vless-ws-3001",
+      "listen": "0.0.0.0",
+      "port": 3001,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "8a3f5c21-7d46-4e2f-9b10-61c2e7d8a934",
+            "email": "ws-user"
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": {
+          "path": "/vless"
         }
       }
     }
